@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BONG!</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="game-container">
+
+        <header class="game-header">
+            <h1>BONG!</h1>
+            <p>Håll bollen i spel så länge du kan!</p>
+        </header>
+
+        <section class="scoreboard">
+            <div>
+                <span>Poäng</span>
+                <strong id="score">0</strong>
+            </div>
+
+            <div>
+                <span>Highscore</span>
+                <strong id="highscore">0</strong>
+            </div>
+        </section>
+
+        <section class="game-area">
+
+            <canvas
+                id="gameCanvas"
+                width="800"
+                height="500"
+                aria-label="Spelplan för BONG"
+            ></canvas>
+
+            <div id="startMenu" class="menu-screen">
+                <h2>Välkommen till BONG!</h2>
+
+                <p>
+                    Flytta plattan och håll bollen i spel.
+                    Varje studs ger 1 poäng.
+                </p>
+
+                <button id="startButton" type="button">
+                    Starta spelet
+                </button>
+
+                <div class="instructions">
+                    <p>Mac: använd musen, styrplattan eller piltangenterna.</p>
+                    <p>Mobil och surfplatta: dra med fingret.</p>
+                </div>
+            </div>
+
+            <div id="gameOverMenu" class="menu-screen hidden">
+                <h2>Spelet är slut!</h2>
+
+                <p>
+                    Din poäng:
+                    <strong id="finalScore">0</strong>
+                </p>
+
+                <p id="newHighscoreMessage" class="highscore-message hidden">
+                    Nytt highscore!
+                </p>
+
+                <button id="restartButton" type="button">
+                    Spela igen
+                </button>
+
+                <button id="menuButton" class="secondary-button" type="button">
+                    Till startmenyn
+                </button>
+            </div>
+
+        </section>
+
+        <footer>
+            <p>BONG! Version 1.0 · För alla åldrar 3+</p>
+        </footer>
+
+    </main>
+
+    <script src="game.js"></script>
+
+</body>
+</html>

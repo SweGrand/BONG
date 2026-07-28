@@ -1,0 +1,351 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background:
+        radial-gradient(circle at 15% 20%, #ffec73 0, transparent 25%),
+        radial-gradient(circle at 85% 20%, #ff69b4 0, transparent 25%),
+        radial-gradient(circle at 20% 85%, #45e6ff 0, transparent 25%),
+        radial-gradient(circle at 80% 80%, #8dff78 0, transparent 25%),
+        linear-gradient(135deg, #7b4dff, #ff4da6);
+
+    color: white;
+}
+
+.game-container {
+    width: min(900px, 100%);
+    text-align: center;
+}
+
+.game-header h1 {
+    margin: 0;
+
+    font-size: clamp(56px, 10vw, 100px);
+    line-height: 1;
+
+    letter-spacing: 6px;
+
+    color: #ffffff;
+
+    text-shadow:
+        4px 4px 0 #ff3d9a,
+        8px 8px 0 #5b32d6;
+}
+
+.game-header p {
+    margin: 14px 0 22px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-bottom: 16px;
+}
+
+.scoreboard div {
+    min-width: 130px;
+    padding: 10px 20px;
+
+    border: 3px solid rgba(255, 255, 255, 0.9);
+    border-radius: 18px;
+
+    background: rgba(42, 23, 91, 0.7);
+    backdrop-filter: blur(8px);
+}
+
+.scoreboard span {
+    display: block;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.scoreboard strong {
+    display: block;
+    margin-top: 3px;
+    font-size: 30px;
+}
+
+.game-area {
+    position: relative;
+    width: 100%;
+
+    overflow: hidden;
+
+    border: 6px solid white;
+    border-radius: 26px;
+
+    background: #25145a;
+
+    box-shadow:
+        0 20px 50px rgba(30, 10, 70, 0.45),
+        0 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+
+    background:
+        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(180deg, #351c78, #180d3b);
+
+    background-size:
+        35px 35px,
+        35px 35px,
+        auto;
+}
+
+.menu-screen {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+
+    background: rgba(25, 12, 67, 0.84);
+    backdrop-filter: blur(8px);
+}
+
+.menu-screen h2 {
+    margin: 0 0 12px;
+    font-size: clamp(30px, 6vw, 52px);
+}
+
+.menu-screen > p {
+    max-width: 530px;
+    margin: 7px 0 20px;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+button {
+    min-width: 210px;
+    margin: 7px;
+    padding: 14px 25px;
+
+    border: 3px solid white;
+    border-radius: 999px;
+
+    background: linear-gradient(135deg, #ffda45, #ff7b3f);
+
+    color: #28135d;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 8px 0 #bd3e79;
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 0 #bd3e79;
+}
+
+button:active {
+    transform: translateY(5px);
+    box-shadow: 0 3px 0 #bd3e79;
+}
+
+.secondary-button {
+    background: linear-gradient(135deg, #63eaff, #66ff9a);
+}
+
+.instructions {
+    margin-top: 22px;
+    padding: 13px 18px;
+
+    border-radius: 16px;
+
+    background: rgba(255, 255, 255, 0.13);
+
+    font-size: 14px;
+}
+
+.instructions p {
+    margin: 5px;
+}
+
+.highscore-message {
+    padding: 10px 20px;
+    border-radius: 999px;
+
+    background: #ffdf3d;
+    color: #3c176c;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    animation: highscorePulse 0.8s infinite alternate;
+}
+
+.hidden {
+    display: none;
+}
+
+footer {
+    margin-top: 18px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+@keyframes highscorePulse {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.08);
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    .game-header p {
+        font-size: 15px;
+    }
+
+    .scoreboard {
+        gap: 8px;
+    }
+
+    .scoreboard div {
+        min-width: 105px;
+        padding: 8px 12px;
+    }
+
+    .scoreboard strong {
+        font-size: 24px;
+    }
+
+    .menu-screen {
+        padding: 16px;
+    }
+
+    .menu-screen > p {
+        font-size: 15px;
+    }
+
+    button {
+        min-width: 180px;
+        padding: 11px 20px;
+        font-size: 16px;
+    }
+
+    .instructions {
+        margin-top: 12px;
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+}html {
+    min-height: 100%;
+    background: #7b4dff;
+}
+
+body {
+    min-height: 100dvh;
+    overscroll-behavior: none;
+    touch-action: manipulation;
+
+    padding-top: max(12px, env(safe-area-inset-top));
+    padding-right: max(12px, env(safe-area-inset-right));
+    padding-bottom: max(12px, env(safe-area-inset-bottom));
+    padding-left: max(12px, env(safe-area-inset-left));
+}
+
+canvas {
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+button {
+    -webkit-tap-highlight-color: transparent;
+}
+
+@media (max-width: 600px) {
+    .game-header h1 {
+        font-size: 52px;
+    }
+
+    .game-header p {
+        margin: 8px 0 12px;
+    }
+
+    .scoreboard {
+        margin-bottom: 10px;
+    }
+
+    .scoreboard div {
+        min-width: 100px;
+        padding: 6px 10px;
+    }
+
+    .scoreboard span {
+        font-size: 11px;
+    }
+
+    .scoreboard strong {
+        font-size: 22px;
+    }
+
+    .game-area {
+        border-width: 4px;
+        border-radius: 20px;
+    }
+
+    .menu-screen h2 {
+        font-size: 28px;
+    }
+
+    footer {
+        margin-top: 10px;
+        font-size: 12px;
+    }
+}
+
+@media (max-height: 750px) {
+    .game-header h1 {
+        font-size: 44px;
+    }
+
+    .game-header p {
+        display: none;
+    }
+
+    footer {
+        display: none;
+    }
+
+    .scoreboard {
+        margin-bottom: 8px;
+    }
+}
