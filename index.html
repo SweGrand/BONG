@@ -5,7 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>BONG!</title>
+<meta name="theme-color" content="#7b4dff">
 
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="BONG!">
+
+<link rel="manifest" href="manifest.json">
+
+<link
+    rel="apple-touch-icon"
+    href="icons/bong-icon-192.png"
+>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -81,12 +92,26 @@
         </section>
 
         <footer>
-            <p>BONG! Version 1.0 · För alla åldrar 3+</p>
+            <p>BONG! Version 1.0 · 🎮 Grandeberg Gaming</p>
         </footer>
 
     </main>
 
     <script src="game.js"></script>
+    <script>
+    if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+            navigator.serviceWorker
+                .register("./service-worker.js")
+                .catch((error) => {
+                    console.error(
+                        "Service Worker kunde inte startas:",
+                        error
+                    );
+                });
+        });
+    }
+</script>
 
 </body>
 </html>
